@@ -5,7 +5,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 class DropColumns(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
-        self.ChangeValues = None
+        
 
     def fit(self, X, y=None):
         return self
@@ -65,7 +65,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
         df_data_3 = norm(df_data_3)
 
         return df_data_3
-    #cambio_valores_nan = ChangeValues()
+    cambio_valores_nan = ChangeValues()
 
     def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
@@ -73,6 +73,6 @@ class DropColumns(BaseEstimator, TransformerMixin):
         # Retornamos um novo dataframe sem as colunas indesejadas
         
         data.drop(labels=self.columns, axis='columns')
-        df_data_3 = ChangeValues(data)
+        df_data_3 = cambio_valores_nan(data)
         
         return df_data_3
