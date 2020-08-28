@@ -64,7 +64,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
         df_data_3 = norm(df_data_3)
 
         return df_data_3
-
+    cambio_valores_nan = ChangeValues()
 
     def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
@@ -72,6 +72,6 @@ class DropColumns(BaseEstimator, TransformerMixin):
         # Retornamos um novo dataframe sem as colunas indesejadas
         
         data.drop(labels=self.columns, axis='columns')
-        df_data_3 = ChangeValues(data)
+        df_data_3 = cambio_valores_nan(data)
         
         return df_data_3
